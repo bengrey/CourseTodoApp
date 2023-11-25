@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,27 +12,36 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="132dp"
-        android:src="@drawable/todyapp_logo" />
+        android:layout_marginTop="212dp"
+        android:src="@drawable/todyapp_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_constraintTop_toBottomOf="logo"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/helvetica_bold"
         android:text="@string/app_name"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="@+id/logo"
+        app:layout_constraintStart_toStartOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <TextView
         android:id="@+id/app_slogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/sf_pro_display_regular"
         android:text="@string/slogan"
         android:textColor="#FFFFFF"
-        android:textSize="16sp" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/app_name"
+        app:layout_constraintStart_toStartOf="@+id/app_name"
+        app:layout_constraintTop_toBottomOf="@+id/app_name" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
