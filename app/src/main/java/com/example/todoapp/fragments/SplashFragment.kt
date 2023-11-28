@@ -64,7 +64,7 @@ class SplashFragment : Fragment() {
                 // Assuming you have a NavController that controls the navigation between fragments
                 val navController = findNavController()
                 // Assuming you have a main screen fragment with id "main_fragment"
-                navController.navigate(R.id.homeFragment)
+                navController.navigate(R.id.itemListFragment)
             }
         })
 

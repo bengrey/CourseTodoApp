@@ -1,12 +1,8 @@
 package com.example.todoapp.database.task
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
-import com.example.todoapp.database.DateConverter
-import java.sql.Date
 
 // Annotate the class with @Entity to mark it as a table in the database
 @Entity(tableName = "tasks")

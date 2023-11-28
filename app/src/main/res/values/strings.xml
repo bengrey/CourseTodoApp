@@ -6,4 +6,7 @@
     <string name="slogan">The best to do list application for you</string>
     <string name="today">Today</string>
     <string name="best_platform_for_creating_to_do_lists">Best platform for creating to-do lists</string>
+    <string name="add_new_task">Add new task</string>
+    <string name="save_action">Save</string>
+    <string name="enter_your_task">Enter your task</string>
 </resources>

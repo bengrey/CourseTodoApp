@@ -14,7 +14,6 @@ import com.example.todoapp.database.task.TaskDao
  * You can optionally use this class for one-time setup, such as pre-populating a database.
  */
 @Database(entities = arrayOf(Task::class), version = 1)
-@TypeConverters(DateConverter::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun TaskDao(): TaskDao
 
