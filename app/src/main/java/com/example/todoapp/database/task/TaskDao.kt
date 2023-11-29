@@ -32,4 +32,6 @@ interface TaskDao {
     @Query("SELECT * FROM tasks ORDER BY date DESC")
     // Define a function that returns a list of all tasks from the database in descending order of creation time
     fun getAll(): Flow<List<Task>>
+    @Query("SELECT * FROM tasks ORDER BY date DESC")
+    fun getItems(): Flow<List<Task>>
 }
