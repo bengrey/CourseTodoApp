@@ -1,7 +1,9 @@
 package com.example.todoapp.database.task
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
@@ -34,4 +36,16 @@ interface TaskDao {
     fun getAll(): Flow<List<Task>>
     @Query("SELECT * FROM tasks ORDER BY date DESC")
     fun getItems(): Flow<List<Task>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(item: Task)
+
+    @Update
+    suspend fun update(item: Task)
+
+    @Delete
+    suspend fun delete(item: Task)
+
+    @Query("SELECT * from tasks WHERE id = :id")
+    fun getItem(id: Int): Flow<Task>
 }

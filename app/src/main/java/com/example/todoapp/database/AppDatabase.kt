@@ -13,25 +13,25 @@ import com.example.todoapp.database.task.TaskDao
  * Version is incremented as new tables/columns are added/removed/changed.
  * You can optionally use this class for one-time setup, such as pre-populating a database.
  */
-@Database(entities = arrayOf(Task::class), version = 1)
-abstract class AppDatabase: RoomDatabase() {
-    abstract fun TaskDao(): TaskDao
+@Database(entities = [Task::class], version = 1, exportSchema = true)
+abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun taskDao(): TaskDao
 
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
-
         fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
-                    context,
+                    context.applicationContext,
                     AppDatabase::class.java,
-                    "app_database")
-                    .createFromAsset("database/tasks.db")
+                    "task_database"
+                )
+                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
-
-                instance
+                return instance
             }
         }
     }

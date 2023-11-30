@@ -25,8 +25,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todoapp.R
+import com.example.todoapp.TaskApplication
 import com.example.todoapp.adapter.ItemListAdapter
 import com.example.todoapp.databinding.ItemListFragmentBinding
+import com.example.todoapp.model.TaskViewModel
+import com.example.todoapp.model.TaskViewModelFactory
 
 /**
  * Main fragment displaying details for all items in the database.
@@ -47,8 +50,22 @@ class ItemListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val adapter = ItemListAdapter {}
+        binding.recyclerView.adapter = adapter
+        viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
+            items.let {
+                adapter.submitList(it)
+            }
+        }
+        binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.floatingActionButton.setOnClickListener {
             this.findNavController().navigate(R.id.addItemFragment)
         }
+    }
+
+    private val viewModel: TaskViewModel by activityViewModels {
+        TaskViewModelFactory(
+            (activity?.application as TaskApplication).database.taskDao()
+        )
     }
 }

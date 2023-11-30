@@ -7,11 +7,7 @@ import androidx.room.PrimaryKey
 // Annotate the class with @Entity to mark it as a table in the database
 @Entity(tableName = "tasks")
 data class Task(
-    // Annotate the primary key with @PrimaryKey and set autoGenerate to true
     @PrimaryKey(autoGenerate = true)
-    // Annotate the column name with @ColumnInfo and specify the name as "id"
-    @ColumnInfo(name = "id")
-    // Define a property for the id of the task
     val id: Int = 0,
 
     // Annotate the column name with @ColumnInfo and specify the name as "task_name"
