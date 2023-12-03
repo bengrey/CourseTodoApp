@@ -26,18 +26,40 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp">
 
+ad        <TextView
+            android:id="@+id/new_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_semibold"
+            android:text="@string/new_task"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/enter_your_task"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/enter_your_task"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="31dp">
+            android:layout_marginTop="16dp"
+            android:background="#F6F7F9"
+            app:boxStrokeColor="@color/brand_default"
+            app:hintTextColor="@color/brand_outline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/new_task">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
                 android:id="@+id/taskName"
+                app:hintTextAppearance="@style/HintText"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/brand_default"
+                android:background="#F6F7F9"
+                android:backgroundTint="#F6F7F9"
                 android:hint="@string/enter_your_task" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,8 +73,10 @@
             android:text="@string/save_action"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enter_your_task" />
+            app:layout_constraintTop_toBottomOf="@+id/enter_your_task"
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,4 +11,5 @@
     <string name="enter_your_task">Enter your task</string>
     <string name="mark_as_done">Mark as done</string>
     <string name="todo">TODO</string>
+    <string name="new_task">New task</string>
 </resources>
