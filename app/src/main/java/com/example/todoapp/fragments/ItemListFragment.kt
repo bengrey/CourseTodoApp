@@ -17,6 +17,7 @@
 package com.example.todoapp.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todoapp.R
 import com.example.todoapp.TaskApplication
 import com.example.todoapp.adapter.ItemListAdapter
+import com.example.todoapp.database.task.TaskDao
 import com.example.todoapp.databinding.ItemListFragmentBinding
 import com.example.todoapp.model.TaskViewModel
 import com.example.todoapp.model.TaskViewModelFactory
@@ -50,7 +52,9 @@ class ItemListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = ItemListAdapter {}
+        val adapter = ItemListAdapter {task ->
+            run {  viewModel.deleteTask(task) }
+        }
         binding.recyclerView.adapter = adapter
         viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
             items.let {

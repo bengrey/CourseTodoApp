@@ -60,7 +60,7 @@ class TaskViewModel(private val taskDao: TaskDao): ViewModel() {
         }
     }
 
-    fun deleteItem(item: Task) {
+    fun deleteTask(item: Task) {
         viewModelScope.launch {
             taskDao.delete(item)
         }
