@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_itemListFragment"
-            app:destination="@id/itemListFragment" />
+            app:destination="@id/itemListFragment"
+            app:popUpTo="@id/addItemFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/itemListFragment"
@@ -20,7 +22,9 @@
         android:label="ItemListFragment" >
         <action
             android:id="@+id/action_itemListFragment_to_addItemFragment"
-            app:destination="@id/addItemFragment" />
+            app:destination="@id/addItemFragment"
+            app:popUpTo="@id/itemListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/addItemFragment"
@@ -28,6 +32,8 @@
         android:label="AddItemFragment" >
         <action
             android:id="@+id/action_addItemFragment_to_itemListFragment"
-            app:destination="@id/itemListFragment" />
+            app:destination="@id/itemListFragment"
+            app:popUpTo="@id/addItemFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
